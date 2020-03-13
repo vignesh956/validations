@@ -1,0 +1,59 @@
+<ion-content>
+  <div class="table">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-xs="12" size-sm="12" size-md="12" size-lg="12">
+          <ion-text class="text ion-text-center">
+            <b>Rentastico Help Zone</b>
+          </ion-text>
+          <ion-text class="text1  ion-text-center">
+            <b>Everything you need to know, all in one place.</b>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input
+            type="text"
+            [(ngModel)]="searchText"
+            placeholder="HOw Can you help you "
+            style="border-radius: 20px; margin: auto; width: 300px; border: 3px solid #23b7e5;"
+            s
+          >
+            <ion-icon ios="ios-search" md="md-search" style="width: 30px; height: 30px;"></ion-icon>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div style="background-color: #d7d8da82 ; margin-top: 49px;">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="0.4"></ion-col>
+        <ion-col>
+          <ion-text
+            >Technologies like cookies, pixel tags ("pixels"), device or other identifiers and local storage
+            (collectively, “Cookies and similar technologies”) are used to deliver, secure, and understand products,
+            services, and ads, on and off the Rentastico Services.<br /><br />
+
+            We offer a range of products and features that involve the use of these technologies to reach you based on
+            your activity on and off our Services. You can learn more about our advertising products and the controls
+            you have by visiting our “Advertising on Rentastico” page. As described in more detail below, we also use
+            these technologies in other ways, like for security purposes, to deliver and enable products and services,
+            as well as to understand and measure products, services and advertisements. Third parties that you interact
+            with as you use the Rentastico Services may also use these technologies for a variety of purposes.
+          </ion-text>
+          <div *ngFor="let hero of heroes | filter: searchText">
+            <h3>
+              <b> {{ hero.head | translate }} </b>
+            </h3>
+            <p>
+              {{ hero.para | translate }}
+            </p>
+          </div>
+        </ion-col>
+        <ion-col size="0.4"></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,173 @@
+<ion-content>
+    <div class="FormBody"*ngIf="!p1">
+        <ion-row>
+            <ion-col  size="12" style="text-align: center;">
+                <ion-text  style="font-size: 25px;color: black;padding: 10px; font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;"
+                >
+                    <b>User Login</b>
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col  size="12" style="text-align: center; ">
+                <ion-text  style="font-size: 15px;color: black;padding: 10px;">
+                    <b>Login to get in touch</b>
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <br/>
+        <form  style="border-bottom: 1px solid grey;"novalidate (ngSubmit)="signup()" [formGroup]="signupform" >
+       <!-- email -->
+       <ion-row>
+        <ion-col offset="1" size='10' csize-xs="10" size-sm="10" size-md="10" size-lg="10" size-xl="10">
+            
+          <ion-item style="border: 1px solid grey;">
+            <ion-input placeholder="Email" required type="email" style="height: 20px;" [(ngModel)]="userData1.email" formControlName="email" [class.error1]="!signupform.controls.email.valid && signupform.controls.email.dirty"></ion-input>
+          </ion-item>
+          <ion-item no-lines *ngIf="( signupform.get('email').hasError('minlength') || signupform.get('email').hasError('pattern') ||signupform.get('email').hasError('required') ) && signupform.get('email').touched">
+            <div class="error" *ngIf="signupform.get('email').hasError('required') && signupform.get('email').touched">
+              Please input your email
+            </div>
+            <div class="error" *ngIf="signupform.get('email').hasError('pattern') && signupform.get('email').touched">
+              Email address invalid
+            </div>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+ 
+        <!-- pass -->
+        <ion-row>
+          <ion-col offset="1" size='10' csize-xs="10" size-sm="10" size-md="10" size-lg="10" size-xl="10">
+            <ion-item style="border: 1px solid grey;">
+              <ion-input #password placeholder="Password" [type]="passwordType" style="height: 20px;" [(ngModel)]="userData1.password" formControlName="password" [class.error1]="!signupform.controls.password.valid && signupform.controls.password.dirty"></ion-input>
+              <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+            </ion-item>
+            <ion-item no-lines *ngIf="( signupform.get('password').hasError('minlength') || signupform.get('password').hasError('maxlength') ||signupform.get('password').hasError('required') ) && signupform.get('password').touched">
+              <div class="error" *ngIf="signupform.get('password').hasError('required') && signupform.get('password').touched">
+                Please input your password
+              </div>
+              <div class="error" *ngIf="signupform.get('password').hasError('minlength') && signupform.get('password').touched">
+                Minimum 6 characters
+              </div>
+              <div class="error" *ngIf="signupform.get('password').hasError('maxlength') && signupform.get('password').touched">
+                Maximum 12 characters
+              </div>
+            </ion-item>
+          </ion-col>
+        </ion-row><br/>
+        <ion-row>
+            <ion-col offset="1" size="10">
+              <section class="full-width">
+                <ion-button
+                (click)="(signupfunc)"
+                [disabled]="signupform.invalid"
+                  expand="full"
+                  shape="round"
+                  color="tertiary"
+                  >Login</ion-button
+                >
+              </section>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col offset="3">
+                <a href="https://www.facebook.com/"> <ion-icon style="height: 50px; width: 90px;" ios="logo-facebook" md="logo-facebook"></ion-icon></a> 
+              
+              </ion-col>
+            
+                <ion-col offset="-2">
+                  <a href="https://www.google.com/"> <ion-icon style="height: 45px; width: 85px;" name="logo-google"></ion-icon></a> 
+                   </ion-col>
+               
+          </ion-row>
+          <br/>
+          <ion-row>
+              <ion-col style="text-align: center;">
+                <ion-text (click)="forget()" style="cursor: pointer;">Forgot password?</ion-text>
+            </ion-col>
+          </ion-row>
+          <br/>
+        
+          <ion-row>
+            <ion-col offset="1" size="10">
+              <section class="full-width">
+                <ion-button
+                  routerLink="/signup"
+                  expand="full"
+                  shape="round"
+                  color="primary"
+                  >Create account</ion-button
+                >
+              </section>
+            </ion-col>
+          </ion-row>
+        </form>
+    </div>
+    <div class="FormBody" *ngIf="p1">
+      <ion-row>
+        <ion-col size="12" style="text-align: center;">
+          <ion-text style="font-size: 25px;color: black;padding: 10px; font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;">
+            <b> Forget Password </b>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" style="text-align: center;">
+          <ion-text style="font-size: 15px;color: black;padding: 10px;">
+            <b> Please Enter Your Email Which You Used For Signup </b>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <br>
+          <form  style="border-bottom: 1px solid grey;"novalidate (ngSubmit)="signup()" [formGroup]="signupform1" >
+         
+            <ion-row>
+              <ion-col offset="1" size='10' csize-xs="10" size-sm="10" size-md="10" size-lg="10" size-xl="10">
+                  
+                <ion-item style="border: 1px solid grey;">
+                  <ion-input placeholder="Email" required type="email" style="height: 20px;" [(ngModel)]="userData1.email" formControlName="email" [class.error1]="!signupform1.controls.email.valid && signupform1.controls.email.dirty"></ion-input>
+                </ion-item>
+                <ion-item no-lines *ngIf="( signupform1.get('email').hasError('minlength') || signupform1.get('email').hasError('pattern') ||signupform1.get('email').hasError('required') ) && signupform1.get('email').touched">
+                  <div class="error" *ngIf="signupform1.get('email').hasError('required') && signupform1.get('email').touched">
+                    Please input your email
+                  </div>
+                  <div class="error" *ngIf="signupform1.get('email').hasError('pattern') && signupform1.get('email').touched">
+                    Email address invalid
+                  </div>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+  <br/>
+          <ion-row>
+              <ion-col offset="1" size="10">
+                <section class="full-width">
+                  <ion-button
+
+                  [disabled]="signupform1.invalid"
+                    expand="full"
+                    shape="round"
+                    color="tertiary"
+                    >reset my Password</ion-button
+                  >
+                </section>
+              </ion-col>
+            </ion-row>
+            <br/>
+           
+           
+            <ion-row>
+              <ion-col offset="1" size="10">
+                <section class="full-width">
+                  <ion-button
+                (click)="p1=false"
+                    expand="full"
+                    shape="round"
+                    color="primary"
+                    >login</ion-button>
+                </section>
+              </ion-col>
+            </ion-row>
+          </form>
+          
+      </div>
+</ion-content>

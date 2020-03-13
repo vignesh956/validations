@@ -1,0 +1,57 @@
+<ion-content>
+  <ion-card style="padding: 15px; ">
+    <ion-text class="text">Price Settings</ion-text>
+    <div class="table">
+      <ion-grid>
+        <ion-row>
+          <ion-col size-xs="8" size-sm="3" size-md="3" size-lg="3">
+            <ion-item style="border: 3px solid gray;   ">
+              <ion-input type="text" [value]="formatDate(datevalue1)"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size-xs="4" size-sm="3" size-md="3" size-lg="3">
+            <ion-icon (click)="clickme()" class="icon" style="height: 60px; width: 60px;" name="calendar">
+              <ion-datetime #date displayFormat="YYYY-MM-DD" display-timezone="utc" [(ngModel)]="datevalue1">
+              </ion-datetime>
+            </ion-icon>
+          </ion-col>
+
+          <ion-col size-xs="8" size-sm="3" size-md="3" size-lg="3">
+            <ion-item style="border: 3px solid gray;   ">
+              <ion-input type="text" [value]="formatDate(datevalue2)"> </ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size-xs="4" size-sm="3" size-md="3" size-lg="3">
+            <ion-icon (click)="clickme1()" class="icon" style="height: 60px; width: 60px;" name="calendar">
+              <ion-datetime #date1 displayFormat="YYYY-MM-DD" display-timezone="utc" [(ngModel)]="datevalue2">
+              </ion-datetime>
+            </ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="table">
+      <ion-grid>
+        <ion-row>
+          <ion-col size-xs="12" size-sm="12" size-md="12" size-lg="12">
+            <ion-text class="text">Property Price :</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size-xs="12" size-sm="12" size-md="12" size-lg="12">
+            <ion-item class="item1">
+              <ion-input type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size-xs="12" size-sm="12" size-md="12" size-lg="12">
+            <ion-item class="item1">
+              <ion-input type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+</ion-content>
